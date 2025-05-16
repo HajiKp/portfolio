@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional portfolio of Haji Kipacha, Full Stack Developer">
+    <meta name="keywords" content="web development, portfolio, JavaScript, HTML, CSS">
+    <meta name="author" content="Haji Kipacha">
+    <title>Haji Kipacha | Portfolio</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/print.css" media="print">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        /* Add to styles/main.css */
+/* Survey Page Specific Styles */
+.survey-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.survey-container h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+}
+
+.form-section {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    background: #f8f9fa;
+}
+
+.form-section legend {
+    color: #007bff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0 1rem;
+    background: white;
+    border-radius: 20px;
+    border: 2px solid #007bff;
+}
+
+.form-group {
+    margin-bottom: 1.8rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 90%;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+    outline: none;
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.radio-group label,
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: normal;
+    padding: 0.8rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.radio-group label:hover,
+.checkbox-group label:hover {
+    background: #f0f6ff;
+}
+
+.rating-scale {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.rating-option {
+    position: relative;
+}
+
+.rating-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.rating-option label {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #e0e0e0;
+    transition: all 0.2s ease;
+}
+
+.rating-option input:checked + label,
+.rating-option label:hover {
+    color: #ffd700;
+    transform: scale(1.1);
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: "▼";
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #007bff;
+    pointer-events: none;
+}
+
+select {
+    appearance: none;
+    background: white url("data:image/svg+xml;utf8,<svg fill='%23007bff' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>") no-repeat right 0.8rem center;
+    background-size: 16px;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.error-message.active {
+    display: block;
+}
+
+input.error,
+select.error,
+textarea.error {
+    border-color: #dc3545;
+    background: #fff5f5;
+}
+
+@media (max-width: 768px) {
+    .survey-container {
+        padding: 1rem;
+        margin: 1rem;
+    }
+    
+    .rating-scale {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .rating-option label {
+        font-size: 1.8rem;
+    }
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.desktop-nav {
+    display: flex;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .heads{
+        position: relative;
+        left: 25px;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .mobile-nav {
+        display: block;
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 60%;
+        background: #000;
+        flex-direction: column;
+        padding: 6rem 2rem;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        color: #000;
+    }
+
+    .mobile-nav.active {
+        right: 0;
+    }
+
+    .dark-theme .mobile-nav {
+        background: #2a2a2a;
+        color: #000;
+    }
+    
+    .dark-theme .hamburger {
+        background: #ffffff;
+    }
+}
+    </style>
+
+</head>
+
+
+
+<body>
+    <nav class="navbar">
+           <button class="menu-toggle" aria-label="Mobile Menu">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+    </button>
+        <!-- <ul class="desktop-nav">
+            <li>
+                <a href="" style="position:relative; right:200px; font-size:25px; font-weight:bold;">
+                    HAJI<span style="color: rgb(138, 185, 227);">KP</span>
+                </a>
+            </li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="survey.html">Survey</a></li>
+            <li>
+                <button id="themeToggle" style="background-color: transparent; border: none;" title="Toggle Theme">
+                    <i id="themeToggleIcon" class="fa fa-moon-o" style="font-size: 20px; cursor: pointer;"></i>
+                </button>
+            </li>
+
+            
+
+        </ul> -->
+
+        <ul class="nav-links mobile-nav">
+        <li>
+                <a href="" class="heads" style="position:relative; right:200px; font-size:25px; font-weight:bold;">
+                    HAJI<span style="color: rgb(138, 185, 227);">KP</span>
+                </a>
+            </li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="survey.html">Survey</a></li>
+            <li>
+                <button id="themeToggle" style="background-color: transparent; border: none;" title="Toggle Theme">
+                    <i id="themeToggleIcon" class="fa fa-moon-o" style="font-size: 20px; cursor: pointer;"></i>
+                </button>
+            </li>
+    </ul>
+    </nav>
+
+    <main class="survey-container">
+        <h1>Client Satisfaction Survey</h1>
+        <form id="surveyForm" novalidate>
+            <fieldset class="form-section">
+                <legend>Personal Information</legend>
+                
+                <div class="form-group">
+                    <label for="surveyName">Full Name <span class="required">*</span></label>
+                    <input type="text" id="surveyName" name="name" required
+                           pattern="[A-Za-z ]{3,}">
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="surveyEmail">Email <span class="required">*</span></label>
+                    <input type="email" id="surveyEmail" name="email" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="surveyPhone">Phone</label>
+                    <input type="tel" id="surveyPhone" name="phone"
+                           pattern="\+255\d{9}"
+                           title="Tanzanian format: +255XXXXXXXXX">
+                    <span class="error-message"></span>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+                <legend>Survey Questions</legend>
+
+                <div class="form-group">
+                    <label>Age Group <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="age" value="18-25" required>
+                            18-25 years
+                        </label>
+                        <label>
+                            <input type="radio" name="age" value="26-35">
+                            26-35 years
+                        </label>
+                        <label>
+                            <input type="radio" name="age" value="36-45">
+                            36-45 years
+                        </label>
+                        <label>
+                            <input type="radio" name="age" value="46+">
+                            46+ years
+                        </label>
+                    </div>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>How did you hear about us? <span class="required">*</span></label>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="source" value="social">
+                            Social Media
+                        </label>
+                        <label>
+                            <input type="checkbox" name="source" value="friend">
+                            Friend Referral
+                        </label>
+                        <label>
+                            <input type="checkbox" name="source" value="search">
+                            Search Engine
+                        </label>
+                        <label>
+                            <input type="checkbox" name="source" value="other">
+                            Other
+                        </label>
+                    </div>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country <span class="required">*</span></label>
+                    <select id="country" name="country" required>
+                        <option value="">Select Country</option>
+                        <option value="TZ">Tanzania</option>
+                        <option value="KE">Kenya</option>
+                        <option value="UG">Uganda</option>
+                        <option value="RW">Rwanda</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <span class="error-message"></span>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+                <legend>Service Rating</legend>
+                
+                <div class="form-group">
+                    <label>Overall Satisfaction <span class="required">*</span></label>
+                    <div class="rating-scale">
+                        <div class="rating-option">
+                            <input type="radio" id="star5" name="rating" value="5" required>
+                            <label for="star5">⭐️⭐️⭐️⭐️⭐️</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4">⭐️⭐️⭐️⭐️</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3">⭐️⭐️⭐️</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2">⭐️⭐️</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1">⭐️</label>
+                        </div>
+                    </div>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Additional Comments</label>
+                    <textarea id="comments" name="comments" rows="4"></textarea>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="submit-btn">Submit Survey</button>
+        </form>
+    </main>
+
+    <footer class="main-footer">
+        <div class="contact-info" style="padding: 25px;">
+            <p>📧 <a href="mailto:hajikp@gmail.com" class="email" style="text-decoration: none;">hajikp@gmail.com</a></p>
+            <p>📱 +255 677 771 439</p>
+        </div>
+        
+        <div class="social-links" style="text-align: center; ">
+            <a href="https://github.com" target="_blank" style="background-color: rgb(2, 49, 116); border: 1px solid rgb(2, 49, 116); padding: 10px 10px; border-radius:10px; color: #ffffff; text-decoration: none;">GitHub</a>
+            <a href="https://linkedin.com" style="background-color: rgb(2, 49, 116); border: 1px solid rgb(2, 49, 116); padding: 10px 10px; border-radius:10px; color: #ffffff; text-decoration: none;" target="_blank">LinkedIn</a>
+            <a href="https://twitter.com" style="background-color: rgb(2, 49, 116); border: 1px solid rgb(2, 49, 116); padding: 10px 10px; border-radius:10px; color: #ffffff; text-decoration: none;" target="_blank">Twitter</a>
+        </div>
+        
+        <div style="background-color: #333; margin-top:20px; position: relative; bottom: 0; top: 100%;" >
+            <p class="copyright" style="text-align: center; color: #ffffff; font-weight: 500; padding:25px">&copy; 2025 Haji Kipacha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+function validateSurveyForm() {
+    let isValid = true;
+    const form = document.getElementById('surveyForm');
+
+    const name = document.getElementById('surveyName');
+    if (!/^[A-Za-z ]{3,}$/.test(name.value)) {
+        showError(name, 'Please enter a valid name (min 3 characters)');
+        isValid = false;
+    }
+
+    const email = document.getElementById('surveyEmail');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        showError(email, 'Please enter a valid email address');
+        isValid = false;
+    }
+
+    const phone = document.getElementById('surveyPhone');
+    if (phone.value && !/^\+255\d{9}$/.test(phone.value)) {
+        showError(phone, 'Please use Tanzanian format: +255XXXXXXXXX');
+        isValid = false;
+    }
+
+    const ageGroup = document.querySelectorAll('input[name="age"]:checked');
+    if (ageGroup.length === 0) {
+        showError(document.querySelector('input[name="age"]'), 'Please select age group');
+        isValid = false;
+    }
+
+    const sources = document.querySelectorAll('input[name="source"]:checked');
+    if (sources.length === 0) {
+        showError(document.querySelector('input[name="source"]'), 'Please select at least one option');
+        isValid = false;
+    }
+
+    const country = document.getElementById('country');
+    if (country.value === "") {
+        showError(country, 'Please select your country');
+        isValid = false;
+    }
+
+    const rating = document.querySelectorAll('input[name="rating"]:checked');
+    if (rating.length === 0) {
+        showError(document.querySelector('input[name="rating"]'), 'Please provide a rating');
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+document.getElementById('surveyForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    clearErrors();
+
+    if (validateSurveyForm()) {
+        alert('Thank you for your feedback!');
+        e.target.reset();
+    }
+});
+
+function clearErrors() {
+    document.querySelectorAll('.error-message').forEach(msg => {
+        msg.textContent = '';
+        msg.classList.remove('active');
+    });
+    document.querySelectorAll('.error').forEach(input => {
+        input.classList.remove('error');
+    });
+}
+    </script>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

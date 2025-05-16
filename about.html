@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional portfolio of Haji Kipacha, Full Stack Developer">
+    <meta name="keywords" content="web development, portfolio, JavaScript, HTML, CSS">
+    <meta name="author" content="Haji Kipacha">
+    <title>Haji Kipacha | Portfolio</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/print.css" media="print">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.bio {
+    text-align: center;
+    padding-right: 2rem;
+    border-right: 2px solid #eee;
+}
+
+.profile img {
+    margin-bottom: 1.5rem;
+    border: 3px solid #007bff;
+}
+
+.quick-facts ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.quick-facts li {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.details {
+    padding-left: 2rem;
+}
+
+.skills-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.skill-category {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 20px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: #007bff;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 30px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: #007bff;
+    border-radius: 50%;
+}
+
+table td, th {
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .bio {
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 2rem;
+    }
+    
+    .details {
+        padding-left: 0;
+    }
+    
+    .skills-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.desktop-nav {
+    display: flex;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .heads{
+        position: relative;
+        left: 25px;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .mobile-nav {
+        display: block;
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 60%;
+        background: #000;
+        flex-direction: column;
+        padding: 6rem 2rem;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        color: #000;
+    }
+
+    .mobile-nav.active {
+        right: 0;
+    }
+
+    .dark-theme .mobile-nav {
+        background: #2a2a2a;
+        color: #000;
+    }
+    
+    .dark-theme .hamburger {
+        background: #ffffff;
+    }
+}
+    </style>
+
+</head>
+<body>
+     <nav class="navbar">
+           <button class="menu-toggle" aria-label="Mobile Menu">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+    </button>
+        <!-- <ul class="desktop-nav">
+            <li>
+                <a href="" style="position:relative; right:200px; font-size:25px; font-weight:bold;">
+                    HAJI<span style="color: rgb(138, 185, 227);">KP</span>
+                </a>
+            </li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="survey.html">Survey</a></li>
+            <li>
+                <button id="themeToggle" style="background-color: transparent; border: none;" title="Toggle Theme">
+                    <i id="themeToggleIcon" class="fa fa-moon-o" style="font-size: 20px; cursor: pointer;"></i>
+                </button>
+            </li>
+
+            
+
+        </ul> -->
+
+        <ul class="nav-links mobile-nav">
+        <li>
+                <a href="" class="heads" style="position:relative; right:200px; font-size:25px; font-weight:bold;">
+                    HAJI<span style="color: rgb(138, 185, 227);">KP</span>
+                </a>
+            </li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="survey.html">Survey</a></li>
+            <li>
+                <button id="themeToggle" style="background-color: transparent; border: none;" title="Toggle Theme">
+                    <i id="themeToggleIcon" class="fa fa-moon-o" style="font-size: 20px; cursor: pointer;"></i>
+                </button>
+            </li>
+    </ul>
+    </nav>
+
+    <main class="about-container" style="padding: 25px;">
+        <section class="about-grid">
+            <article class="bio">
+                <h1>About Me</h1>
+                <figure class="profile">
+                    <img src="images/about.jpg" alt="Haji Kipacha professional portrait" 
+                         style="width: 200px; height: auto; border-radius: 50%;">
+                    <figcaption>Haji Kipacha - Full Stack Developer</figcaption>
+                </figure>
+                
+                <div class="quick-facts">
+                    <h2>Quick Facts</h2>
+                    <ul>
+                        <li>📍 Based in Dodoma, Tanzania</li>
+                        <li>💻 5+ years development experience</li>
+                        <li>🌐 Fluent in English & Swahili</li>
+                        <li>🎓 BSc. Information System (UDOM)</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="details">
+                <section class="skills" id="skills">
+                    <h2>Technical Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Frontend</h3>
+                            <ul class="nested-list">
+                                <li>HTML5/CSS3</li>
+                                <li>JavaScript (ES6+)</li>
+                                <li>React.js</li>
+                                <li>Vue.js</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Backend</h3>
+                            <ul class="nested-list">
+                                <li>Node.js</li>
+                                <li>Python/Django</li>
+                                <li>PostgreSQL</li>
+                                <li>REST APIs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="timeline">
+                    <h2>Experience & Education</h2>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2020 - Present</div>
+                        <div class="timeline-content">
+                            <h3>Senior Developer - Tech Solutions Ltd</h3>
+                            <ul>
+                                <li>Led team of 5 developers in building enterprise applications</li>
+                                <li>Implemented CI/CD pipelines reducing deployment time by 40%</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2016 - 2020</div>
+                        <div class="timeline-content">
+                            <h3>Diploma of Information Technology - University of Dar es Salaam Computing Center</h3>
+                            <ul>
+                                <li>Graduated with First Class Honors</li>
+                                <li>President of Developer Student Club</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </section>
+
+        
+
+        <section class="resume print-friendly" style="padding: 20px;">
+            <h2>Experience</h2>
+            <table class="resume-table" border="" cellspacing="0">
+                <caption style="padding: 10px;">Professional Experience Timeline</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Year</th>
+                        <th scope="col">Position</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Key Achievements</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2020-Present</td>
+                        <td>Senior Developer</td>
+                        <td>Tech Solutions Ltd</td>
+                        <td>
+                            <ul>
+                                <li>Managed $500k+ budget projects</li>
+                                <li>Implemented automated testing suite</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="contact-info" style="padding: 25px;">
+            <p>📧 <a href="mailto:hajikp@gmail.com" class="email" style="text-decoration: none;">hajikp@gmail.com</a></p>
+            <p>📱 +255 677 771 439</p>
+        </div>
+        
+        <div class="social-links" style="text-align: center; ">
+            <a href="https://github.com" target="_blank" style="background-color: rgb(2, 49, 116); border: 1px solid rgb(2, 49, 116); padding: 10px 10px; border-radius:10px; color: #ffffff; text-decoration: none;">GitHub</a>
+            <a href="https://linkedin.com" style="background-color: rgb(2, 49, 116); border: 1px solid rgb(2, 49, 116); padding: 10px 10px; border-radius:10px; color: #ffffff; text-decoration: none;" target="_blank">LinkedIn</a>
+            <a href="https://twitter.com" style="background-color: rgb(2, 49, 116); border: 1px solid rgb(2, 49, 116); padding: 10px 10px; border-radius:10px; color: #ffffff; text-decoration: none;" target="_blank">Twitter</a>
+        </div>
+        
+        <div style="background-color: #333; margin-top:20px; position: relative; bottom: 0; top: 100%;" >
+            <p class="copyright" style="text-align: center; color: #ffffff; font-weight: 500; padding:25px">&copy; 2025 Haji Kipacha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

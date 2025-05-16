@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional portfolio of Haji Kipacha, Full Stack Developer">
+    <meta name="keywords" content="web development, portfolio, JavaScript, HTML, CSS">
+    <meta name="author" content="Haji Kipacha">
+    <title>Haji Kipacha | Portfolio</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/print.css" media="print">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+.hero {
+    padding: 8rem 2rem 4rem;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('images/hero-bg.jpg') center/cover;
+    color: white;
+}
+
+.tech-stack {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.tech-stack img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.project-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.desktop-nav {
+    display: flex;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .heads{
+        position: relative;
+        left: 25px;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .mobile-nav {
+        display: block;
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 60%;
+        background: #000;
+        flex-direction: column;
+        padding: 6rem 2rem;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        color: #000;
+    }
+
+    .mobile-nav.active {
+        right: 0;
+    }
+
+    .dark-theme .mobile-nav {
+        background: #2a2a2a;
+        color: #000;
+    }
+    
+    .dark-theme .hamburger {
+        background: #ffffff;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+           <button class="menu-toggle" aria-label="Mobile Menu">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+    </button>
+        <!-- <ul class="desktop-nav">
+            <li>
+                <a href="" style="position:relative; right:200px; font-size:25px; font-weight:bold;">
+                    HAJI<span style="color: rgb(138, 185, 227);">KP</span>
+                </a>
+            </li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="survey.html">Survey</a></li>
+            <li>
+                <button id="themeToggle" style="background-color: transparent; border: none;" title="Toggle Theme">
+                    <i id="themeToggleIcon" class="fa fa-moon-o" style="font-size: 20px; cursor: pointer;"></i>
+                </button>
+            </li>
+
+            
+
+        </ul> -->
+
+        <ul class="nav-links mobile-nav">
+        <li>
+                <a href="" class="heads" style="position:relative; right:200px; font-size:25px; font-weight:bold;">
+                    HAJI<span style="color: rgb(138, 185, 227);">KP</span>
+                </a>
+            </li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="survey.html">Survey</a></li>
+            <li>
+                <button id="themeToggle" style="background-color: transparent; border: none;" title="Toggle Theme">
+                    <i id="themeToggleIcon" class="fa fa-moon-o" style="font-size: 20px; cursor: pointer;"></i>
+                </button>
+            </li>
+    </ul>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1 id="greeting">Welcome</h1>
+            <p>Full Stack Developer & UI/UX Enthusiast</p>
+            <a href="portfolio.html" class="cta-button" 
+            style="border: 1px solid rgb(2, 49, 116); padding: 10px 15px; color: #ffffff; background-color: rgb(2, 49, 116); text-decoration: none; border-radius:5px; ">View My Work</a>
+        </div>
+        
+        <figure class="tech-stack">
+            <img src="images/tech.png" alt="Technology Stack" usemap="#techmap">
+            <map name="techmap">
+                <area shape="rect" coords="0,0,100,100" href="portfolio.html#web" alt="Web Development">
+                <area shape="circle" coords="150,50,40" href="portfolio.html#mobile" alt="Mobile Development">
+            </map>
+            <figcaption>My Technology Expertise</figcaption>
+        </figure>
+    </header>
+
+    <main>
+        <section class="featured-projects" style="padding: 20px;">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <article class="project-card">
+                    <div style="padding: 20px;">
+                        <img src="images/ecommerce.png" alt="E-commerce Platform">
+                    <h3>E-commerce Platform</h3>
+                    <p>Full-stack shopping solution with React & Node.js</p>
+                    <button class="details-btn">Show Details</button>
+                    </div>
+                </article>
+                
+                <article class="project-card">
+                    <div style="padding: 20px;">
+                        <img src="images/task.png" alt="Task Management App">
+                    <h3>Task Manager</h3>
+                    <p>AI-powered productivity application</p>
+                    <button class="details-btn">Show Details</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="demo-video" style="padding: 25px;">
+            <h2>Project Demo</h2>
+           <iframe width="670" height="377" src="https://www.youtube.com/embed/FQdaUv95mR8" title="HTML Tutorial for Beginners" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="contact-info" style="padding: 25px;">
+            <p>📧 <a href="mailto:hajikp@gmail.com" class="email" style="text-decoration: none;">hajikp@gmail.com</a></p>
+            <p>📱 +255 677 771 439</p>
+        </div>
+        
+        <div class="social-links" style="text-align: center; ">
+            <a href="https://github.com" target="_blank" style="background-color: rgb(2, 49, 116); border: 1px solid rgb(2, 49, 116); padding: 10px 10px; border-radius:10px; color: #ffffff; text-decoration: none;">GitHub</a>
+            <a href="https://linkedin.com" style="background-color: rgb(2, 49, 116); border: 1px solid rgb(2, 49, 116); padding: 10px 10px; border-radius:10px; color: #ffffff; text-decoration: none;" target="_blank">LinkedIn</a>
+            <a href="https://twitter.com" style="background-color: rgb(2, 49, 116); border: 1px solid rgb(2, 49, 116); padding: 10px 10px; border-radius:10px; color: #ffffff; text-decoration: none;" target="_blank">Twitter</a>
+        </div>
+        
+        <div style="background-color: #333; margin-top:20px; position: relative; bottom: 0; top: 100%;" >
+            <p class="copyright" style="text-align: center; color: #ffffff; font-weight: 500; padding:25px">&copy; 2025 Haji Kipacha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

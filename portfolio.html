@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional portfolio of Haji Kipacha, Full Stack Developer">
+    <meta name="keywords" content="web development, portfolio, JavaScript, HTML, CSS">
+    <meta name="author" content="Haji Kipacha">
+    <title>Haji Kipacha | Portfolio</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/print.css" media="print">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+ <style>
+.portfolio-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid #007bff;
+    border-radius: 20px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background: #007bff;
+    color: white;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.project-card {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 3px solid #007bff;
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.tech-stack {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+}
+
+.tech-stack li {
+    background: #f8f9fa;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.project-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.project-details.active {
+    max-height: 500px;
+}
+
+@media (max-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-buttons {
+        justify-content: center;
+    }
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.desktop-nav {
+    display: flex;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .heads{
+        position: relative;
+        left: 25px;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .mobile-nav {
+        display: block;
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 60%;
+        background: #000;
+        flex-direction: column;
+        padding: 6rem 2rem;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        color: #000;
+    }
+
+    .mobile-nav.active {
+        right: 0;
+    }
+
+    .dark-theme .mobile-nav {
+        background: #2a2a2a;
+        color: #000;
+    }
+    
+    .dark-theme .hamburger {
+        background: #ffffff;
+    }
+}
+ </style>
+
+
+<body>
+    <nav class="navbar">
+           <button class="menu-toggle" aria-label="Mobile Menu">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+    </button>
+        <!-- <ul class="desktop-nav">
+            <li>
+                <a href="" style="position:relative; right:200px; font-size:25px; font-weight:bold;">
+                    HAJI<span style="color: rgb(138, 185, 227);">KP</span>
+                </a>
+            </li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="survey.html">Survey</a></li>
+            <li>
+                <button id="themeToggle" style="background-color: transparent; border: none;" title="Toggle Theme">
+                    <i id="themeToggleIcon" class="fa fa-moon-o" style="font-size: 20px; cursor: pointer;"></i>
+                </button>
+            </li>
+
+            
+
+        </ul> -->
+
+        <ul class="nav-links mobile-nav">
+        <li>
+                <a href="" class="heads" style="position:relative; right:200px; font-size:25px; font-weight:bold;">
+                    HAJI<span style="color: rgb(138, 185, 227);">KP</span>
+                </a>
+            </li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="survey.html">Survey</a></li>
+            <li>
+                <button id="themeToggle" style="background-color: transparent; border: none;" title="Toggle Theme">
+                    <i id="themeToggleIcon" class="fa fa-moon-o" style="font-size: 20px; cursor: pointer;"></i>
+                </button>
+            </li>
+    </ul>
+    </nav>
+
+    <main class="portfolio-container" style="padding: 70px 40px 40px 40px ;">
+        <h1 style="color: #007bff; text-align: center; font-weight: bold; position: relative; top: 10px;">Projects</h1>
+
+        <section class="project-filters">
+
+
+            <h2>Filter Projects</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="frontend">Frontend</button>
+                <button class="filter-btn" data-filter="backend">Backend</button>
+                <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+            </div>
+        </section>
+
+        <section class="project-grid">
+            <article class="project-card fullstack" data-category="fullstack">
+                <figure>
+                    <img src="images/ecommerce.png" alt="E-commerce Platform" usemap="#ecom-map">
+                    <map name="ecom-map">
+                        <area shape="rect" coords="0,0,100,100" href="#frontend" alt="Frontend Section">
+                        <area shape="rect" coords="100,0,200,100" href="#backend" alt="Backend Section">
+                    </map>
+                    <figcaption>E-commerce Platform</figcaption>
+                </figure>
+                <div class="project-content">
+                    <h3>E-commerce Platform</h3>
+                    <ul class="tech-stack">
+                        <li>React</li>
+                        <li>Node.js</li>
+                        <li>MongoDB</li>
+                    </ul>
+                    <p class="project-description">Full-featured shopping platform with real-time inventory management</p>
+                    <button class="details-btn">Show Details</button>
+                    <div class="project-details">
+                        <p>✅ Payment gateway integration</p>
+                        <p>🛒 Shopping cart functionality</p>
+                        <p>📊 Admin dashboard analytics</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card frontend" data-category="frontend">
+                <figure>
+                    <img src="images/analytics.png" alt="Analytics Dashboard">
+                    <figcaption>Analytics Dashboard</figcaption>
+                </figure>
+                <div class="project-content">
+                    <h3>Analytics Dashboard</h3>
+                    <ul class="tech-stack">
+                        <li>React</li>
+                        <li>Chart.js</li>
+                        <li>Material UI</li>
+                    </ul>
+                    <p class="project-description">Data visualization dashboard with real-time updates</p>
+                    <button class="details-btn">Show Details</button>
+                    <div class="project-details">
+                        <p>📈 Interactive charts</p>
+                        <p>🔄 Real-time data updates</p>
+                        <p>📱 Mobile-responsive design</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card backend" data-category="backend">
+                <figure>
+                    <img src="images/api.png" alt="REST API System">
+                    <figcaption>API System</figcaption>
+                </figure>
+                <div class="project-content">
+                    <h3>REST API System</h3>
+                    <ul class="tech-stack">
+                        <li>Node.js</li>
+                        <li>Express</li>
+                        <li>PostgreSQL</li>
+                    </ul>
+                    <p class="project-description">Scalable backend system with JWT authentication</p>
+                    <button class="details-btn">Show Details</button>
+                    <div class="project-details">
+                        <p>🔐 JWT Authentication</p>
+                        <p>📡 RESTful endpoints</p>
+                        <p>⚡ Performance optimization</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="demo-video" style="padding: 25px;">
+            <h2>Project Demo</h2>
+           <iframe width="670" height="377" src="https://www.youtube.com/embed/FQdaUv95mR8" title="HTML Tutorial for Beginners" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+    </main>
+
+     <footer class="main-footer">
+        <div class="contact-info" style="padding: 25px;">
+            <p>📧 <a href="mailto:hajikp@gmail.com" class="email" style="text-decoration: none;">hajikp@gmail.com</a></p>
+            <p>📱 +255 677 771 439</p>
+        </div>
+        
+        <div class="social-links" style="text-align: center; ">
+            <a href="https://github.com" target="_blank" style="background-color: rgb(2, 49, 116); border: 1px solid rgb(2, 49, 116); padding: 10px 10px; border-radius:10px; color: #ffffff; text-decoration: none;">GitHub</a>
+            <a href="https://linkedin.com" style="background-color: rgb(2, 49, 116); border: 1px solid rgb(2, 49, 116); padding: 10px 10px; border-radius:10px; color: #ffffff; text-decoration: none;" target="_blank">LinkedIn</a>
+            <a href="https://twitter.com" style="background-color: rgb(2, 49, 116); border: 1px solid rgb(2, 49, 116); padding: 10px 10px; border-radius:10px; color: #ffffff; text-decoration: none;" target="_blank">Twitter</a>
+        </div>
+        
+        <div style="background-color: #333; margin-top:20px; position: relative; bottom: 0; top: 100%;" >
+            <p class="copyright" style="text-align: center; color: #ffffff; font-weight: 500; padding:25px">&copy; 2025 Haji Kipacha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+
+<script>
+    document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(btn => 
+            btn.classList.remove('active'));
+        
+        button.classList.add('active');
+        const filter = button.dataset.filter;
+
+        document.querySelectorAll('.project-card').forEach(project => {
+            if (filter === 'all' || project.dataset.category === filter) {
+                project.style.display = 'block';
+            } else {
+                project.style.display = 'none';
+            }
+        });
+    });
+});
+
+document.querySelectorAll('.details-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const details = button.nextElementSibling;
+        details.classList.toggle('active');
+        button.textContent = details.classList.contains('active') ? 
+            'Hide Details' : 'Show Details';
+    });
+});
+
+document.querySelectorAll('area').forEach(area => {
+    area.addEventListener('mouseenter', () => {
+        const projects = document.querySelectorAll(area.getAttribute('href'));
+        projects.forEach(project => {
+            project.style.transform = 'scale(1.05)';
+        });
+    });
+    
+    area.addEventListener('mouseleave', () => {
+        const projects = document.querySelectorAll(area.getAttribute('href'));
+        projects.forEach(project => {
+            project.style.transform = 'scale(1)';
+        });
+    });
+});
+    </script>
+</body>
+</html>
